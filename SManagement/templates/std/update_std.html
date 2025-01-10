@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SManagement</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    {% include 'std/navbar.html' %}
+    <h1 class="text-center my-2 mb-5 mt-4">Update Student Details</h1>
+    <div class="container border">
+        <div class="row">
+            <div class="col-md-12 p-10">
+                <div class="card-body">
+                    <form action="/std/do-update-std/{{std.id}}" method="POST">
+                        {% csrf_token %}
+                        <div class="md-3 mt-2">
+                            <label class="mb-2" for="roll">Reg No</label>
+                            <input name="std_regno" type="text" id="roll" class="form-control" placeholder="Enter Reg No" required value="{{std.regno}}"> 
+                        </div>  
+                        <div class="md-3 mt-4">
+                            <label class="mb-2" for="name">Name</label>
+                            <input name="std_name" type="text" id="name" class="form-control" placeholder="Enter Name" required value="{{std.name}}"> 
+                        </div>  
+                        <div class="md-3 mt-4">
+                            <label class="mb-2" for="email">Email</label>
+                            <input name="std_email" type="text" id="email" class="form-control" placeholder="Enter Email Id" required value="{{std.email}}"> 
+                        </div>  
+                        <div class="md-3 mt-4 mb-5">
+                            <label class="mb-2" for="phone">Phone</label>
+                            <input name="std_phone" type="text" id="phone" class="form-control" placeholder="Enter Phone Number" required value="{{std.phone}}"> 
+                        </div>  
+                        <div class="container text-center mb-4">
+                            <button class="btn btn-success">Update</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
